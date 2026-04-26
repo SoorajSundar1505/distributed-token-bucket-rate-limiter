@@ -1,5 +1,6 @@
 # Redis + Lua Token Bucket Rate Limiter (Node.js)
 
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-black?logo=github)](https://github.com/SoorajSundar1505/distributed-token-bucket-rate-limiter)
 ![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-4.x-000000?logo=express&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-7.x-DC382D?logo=redis&logoColor=white)
@@ -250,23 +251,16 @@ Expected behavior:
 
 ---
 
-## Interview Talking Points
+## Key Design Considerations
 
-If asked about this project, emphasize:
-
-- Why token bucket is better than fixed-window for smoothing bursts
-- How Lua atomicity prevents double-spend under concurrent requests
-- Why distributed rate limiting requires shared state (Redis)
-- Availability trade-off: fail-open vs fail-closed
-- How you would evolve this for production at higher scale
+- Token Bucket provides smoother rate limiting compared to fixed window by avoiding burst spikes at boundaries  
+- Redis enables shared state across multiple instances for distributed rate limiting  
+- Lua scripting ensures atomic execution, preventing race conditions under concurrent requests  
+- Fail-open vs fail-closed strategies impact availability vs strict enforcement  
+- System can be extended for production using Redis Cluster, API key-based limits, and observability  
 
 ---
 
-## Resume Highlight
-
-Built a distributed rate limiter using Token Bucket with Redis and Lua, handling concurrency safely across multiple instances.
-
----
 
 ## License
 
